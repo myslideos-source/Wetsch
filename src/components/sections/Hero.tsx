@@ -5,7 +5,10 @@ import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion
 import { ChevronDown, MapPin, Sparkles, Star } from "lucide-react";
 import Button from "@/components/ui/Button";
 import DemoImage from "@/components/ui/DemoImage";
+import imageManifest from "@/lib/image-manifest.json";
 import { COMPANY, HERO_IMAGE } from "@/lib/constants";
+
+const hasRealHeroImage = HERO_IMAGE.src in (imageManifest as Record<string, unknown>);
 
 const HERO_FALLBACK_GRADIENT =
   "radial-gradient(120% 90% at 20% 0%, #3a352f 0%, #1a1a18 55%, #0c0c0b 100%)";
@@ -188,24 +191,26 @@ function ConstructionScene() {
         transition={{ duration: 9, repeat: Infinity, ease: "linear" }}
       />
 
-      <svg
-        className="absolute bottom-0 right-[4%] h-[70%] w-auto text-off-white/25 md:right-[8%]"
-        viewBox="0 0 200 260"
-        fill="none"
-        aria-hidden
-      >
-        <line x1="30" y1="260" x2="30" y2="20" stroke="currentColor" strokeWidth="3" />
-        <line x1="30" y1="20" x2="180" y2="20" stroke="currentColor" strokeWidth="3" />
-        <line x1="30" y1="40" x2="150" y2="20" stroke="currentColor" strokeWidth="2" />
-        <line x1="10" y1="60" x2="50" y2="60" stroke="currentColor" strokeWidth="2" />
-        <motion.g
-          animate={prefersReducedMotion ? undefined : { y: [0, 14, 0] }}
-          transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
+      {!hasRealHeroImage && (
+        <svg
+          className="absolute bottom-0 right-[4%] h-[70%] w-auto text-off-white/25 md:right-[8%]"
+          viewBox="0 0 200 260"
+          fill="none"
+          aria-hidden
         >
-          <line x1="160" y1="20" x2="160" y2="110" stroke="currentColor" strokeWidth="2" />
-          <rect x="150" y="110" width="20" height="14" fill="currentColor" opacity="0.5" />
-        </motion.g>
-      </svg>
+          <line x1="30" y1="260" x2="30" y2="20" stroke="currentColor" strokeWidth="3" />
+          <line x1="30" y1="20" x2="180" y2="20" stroke="currentColor" strokeWidth="3" />
+          <line x1="30" y1="40" x2="150" y2="20" stroke="currentColor" strokeWidth="2" />
+          <line x1="10" y1="60" x2="50" y2="60" stroke="currentColor" strokeWidth="2" />
+          <motion.g
+            animate={prefersReducedMotion ? undefined : { y: [0, 14, 0] }}
+            transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <line x1="160" y1="20" x2="160" y2="110" stroke="currentColor" strokeWidth="2" />
+            <rect x="150" y="110" width="20" height="14" fill="currentColor" opacity="0.5" />
+          </motion.g>
+        </svg>
+      )}
 
       {!prefersReducedMotion && (
         <div className="absolute inset-0" aria-hidden>
