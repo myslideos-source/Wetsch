@@ -112,7 +112,7 @@ export default function Projects() {
             </h3>
             <p className="mb-10 flex max-w-2xl items-start gap-2 text-sm text-off-white/50">
               <Info size={15} className="mt-0.5 shrink-0" aria-hidden />
-              Visualisierung mit unabhängigen Beispielbildern – nicht dieselbe Örtlichkeit.
+              Beispielbilder zur Visualisierung – kein bestätigtes Wetsch-Projekt.
             </p>
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
               {BEFORE_AFTER_PAIRS.map((pair) => (
