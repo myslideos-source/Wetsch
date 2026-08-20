@@ -3,7 +3,10 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import Button from "@/components/ui/Button";
+import DemoImage from "@/components/ui/DemoImage";
 import { COMPANY, SERVICES } from "@/lib/constants";
+
+const SERVICE_HERO_GRADIENT = "linear-gradient(135deg,#2a2a27,#4a4640)";
 
 export function generateStaticParams() {
   return SERVICES.map((service) => ({ slug: service.slug }));
@@ -77,8 +80,16 @@ export default async function ServicePage({ params }: PageProps<"/leistungen/[sl
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
       />
 
-      <section className="bg-graphite px-5 pb-16 pt-40 text-off-white md:px-10 md:pb-24 md:pt-48">
-        <div className="mx-auto max-w-[1400px]">
+      <section className="relative overflow-hidden bg-graphite px-5 pb-16 pt-40 text-off-white md:px-10 md:pb-24 md:pt-48">
+        <DemoImage
+          src={service.image.src}
+          alt={service.image.alt}
+          fallbackGradient={SERVICE_HERO_GRADIENT}
+          sizes="100vw"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-graphite via-graphite/85 to-graphite/40" />
+        <div className="relative mx-auto max-w-[1400px]">
           <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-2 text-xs text-off-white/50">
             <Link href="/" className="hover:text-accent-vivid">
               Start

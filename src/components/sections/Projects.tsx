@@ -1,8 +1,10 @@
 "use client";
 
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Info } from "lucide-react";
+import DemoImage from "@/components/ui/DemoImage";
+import DemoBadge from "@/components/ui/DemoBadge";
 import BeforeAfterSlider from "@/components/ui/BeforeAfterSlider";
-import { PROJECTS } from "@/lib/constants";
+import { BEFORE_AFTER_PAIRS, PROJECTS } from "@/lib/constants";
 
 const GRADIENTS: Record<string, string> = {
   "efh-dinkelsbuehl": "linear-gradient(135deg,#1a1a18,#4a4640 60%,#e8642a)",
@@ -11,6 +13,19 @@ const GRADIENTS: Record<string, string> = {
   "innenausbau-dinkelsbuehl": "linear-gradient(135deg,#3a352f,#a7a49b)",
   "abbruch-fichtenau": "linear-gradient(135deg,#1a1a18,#3a3733)",
   "aussenanlage-dinkelsbuehl": "linear-gradient(135deg,#3a4432,#6f7a4a)",
+  "neubau-rohbau": "linear-gradient(135deg,#2a2a27,#e8642a)",
+  "moderne-terrasse": "linear-gradient(135deg,#4a4640,#8a8378)",
+};
+
+const BEFORE_AFTER_GRADIENTS: Record<string, { before: string; after: string }> = {
+  hofeinfahrt: {
+    before: "linear-gradient(135deg,#5c574e,#8a8378)",
+    after: "linear-gradient(135deg,#2a2a27,#5c574e)",
+  },
+  "rohbau-fertig": {
+    before: "linear-gradient(135deg,#3a3733,#8a8378)",
+    after: "linear-gradient(135deg,#1a1a18,#4a4640 60%,#e8642a)",
+  },
 };
 
 const SPAN: Record<string, string> = {
@@ -20,12 +35,10 @@ const SPAN: Record<string, string> = {
 };
 
 export default function Projects() {
-  const beforeAfterProjects = PROJECTS.filter((p) => p.hasBeforeAfter);
-
   return (
     <section id="projekte" className="bg-graphite px-5 py-24 text-off-white md:px-10 md:py-32">
       <div className="mx-auto max-w-[1600px]">
-        <div className="mb-14 md:mb-20">
+        <div className="mb-6 md:mb-8">
           <p className="label-technical text-xs text-accent-vivid mb-4">Projekte</p>
           <h2 className="font-display font-extrabold uppercase leading-[0.9] text-[clamp(2.6rem,7vw,5.5rem)]">
             Nicht erzählen.
@@ -34,18 +47,32 @@ export default function Projects() {
           </h2>
         </div>
 
+        <p className="mb-14 flex max-w-2xl items-start gap-2 text-sm text-off-white/50 md:mb-20">
+          <Info size={15} className="mt-0.5 shrink-0" aria-hidden />
+          Die folgenden Projekte sind mit lizenzierten Beispielbildern visualisierte
+          Demo-Referenzen und werden durch echte Wetsch-Projekte ersetzt, sobald diese
+          verfügbar sind.
+        </p>
+
         <div className="grid grid-cols-1 gap-5 md:grid-cols-12 md:auto-rows-[220px]">
           {PROJECTS.map((project) => (
             <article
               key={project.id}
               data-cursor="ANSEHEN"
-              className={`group relative overflow-hidden rounded-2xl ${SPAN[project.size]}`}
+              className={`group relative aspect-[4/3] overflow-hidden rounded-2xl md:aspect-auto ${SPAN[project.size]}`}
             >
-              <div
-                className="absolute inset-0 h-full w-full transition-transform duration-700 ease-out group-hover:scale-105"
-                style={{ background: GRADIENTS[project.id] }}
+              <DemoImage
+                src={project.image.src}
+                alt={project.image.alt}
+                fallbackGradient={GRADIENTS[project.id]}
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className="transition-transform duration-700 ease-out group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent opacity-80 transition-opacity duration-500 group-hover:opacity-95" />
+
+              <div className="absolute left-4 top-4">
+                <DemoBadge />
+              </div>
 
               <div className="absolute inset-0 flex flex-col justify-end p-6">
                 <div className="translate-y-2 opacity-90 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
@@ -77,27 +104,31 @@ export default function Projects() {
           ))}
         </div>
 
-        {beforeAfterProjects.length > 0 && (
+        {BEFORE_AFTER_PAIRS.length > 0 && (
           <div className="mt-24">
             <p className="label-technical text-xs text-accent-vivid mb-4">Vorher / Nachher</p>
-            <h3 className="font-display text-3xl font-bold uppercase mb-10 md:text-4xl">
+            <h3 className="font-display text-3xl font-bold uppercase mb-4 md:text-4xl">
               Der Unterschied, live gezogen.
             </h3>
+            <p className="mb-10 flex max-w-2xl items-start gap-2 text-sm text-off-white/50">
+              <Info size={15} className="mt-0.5 shrink-0" aria-hidden />
+              Visualisierung mit unabhängigen Beispielbildern – nicht dieselbe Örtlichkeit.
+            </p>
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-              {beforeAfterProjects.map((project) => (
-                <div key={project.id}>
+              {BEFORE_AFTER_PAIRS.map((pair) => (
+                <div key={pair.id}>
                   <BeforeAfterSlider
-                    beforeGradient="linear-gradient(135deg,#5c574e,#8a8378)"
-                    afterGradient={GRADIENTS[project.id]}
+                    before={pair.before}
+                    after={pair.after}
+                    beforeGradient={BEFORE_AFTER_GRADIENTS[pair.id].before}
+                    afterGradient={BEFORE_AFTER_GRADIENTS[pair.id].after}
                   />
                   <div className="mt-4 flex items-center justify-between">
                     <div>
-                      <p className="font-medium">{project.title}</p>
-                      <p className="text-sm text-off-white/60">{project.tags.join(" · ")}</p>
+                      <p className="font-medium">{pair.title}</p>
+                      <p className="text-sm text-off-white/60">{pair.tags.join(" · ")}</p>
                     </div>
-                    <span className="label-technical text-xs text-off-white/50">
-                      {project.location}
-                    </span>
+                    <DemoBadge label="Visualisierung" />
                   </div>
                 </div>
               ))}

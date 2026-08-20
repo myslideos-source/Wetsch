@@ -1,0 +1,156 @@
+[
+  {
+    "key": "hero",
+    "pexelsId": 5505125,
+    "file": "hero/hero-baustelle.jpg",
+    "alt": "Baukran auf einer Baustelle im Abendlicht",
+    "sourceUrl": "https://www.pexels.com/photo/construction-crane-on-a-building-site-5505125/"
+  },
+  {
+    "key": "service-abbrucharbeiten",
+    "pexelsId": 11461002,
+    "file": "services/abbrucharbeiten.jpg",
+    "alt": "Bagger bei Abbrucharbeiten an einem Bestandsgebäude",
+    "sourceUrl": "https://www.pexels.com/photo/excavator-outside-an-abandoned-building-11461002/"
+  },
+  {
+    "key": "service-aussenanlagen",
+    "pexelsId": 31912301,
+    "file": "services/aussenanlagen.jpg",
+    "alt": "Modernes Einfamilienhaus mit gepflegter Außenanlage",
+    "sourceUrl": "https://www.pexels.com/photo/modern-suburban-house-with-neat-landscaping-31912301/"
+  },
+  {
+    "key": "service-bauschuttentsorgung",
+    "pexelsId": 5125782,
+    "file": "services/bauschuttentsorgung.jpg",
+    "alt": "Radlader beim Umschlag von Baumaterial auf einer Baustelle",
+    "sourceUrl": "https://www.pexels.com/photo/yellow-loader-at-construction-site-5125782/"
+  },
+  {
+    "key": "service-fertighausbau",
+    "pexelsId": 8491085,
+    "file": "services/fertighausbau.jpg",
+    "alt": "Holzdachstuhl auf einem Rohbau",
+    "sourceUrl": "https://www.pexels.com/photo/wooden-frame-of-roof-on-concrete-building-8491085/"
+  },
+  {
+    "key": "service-hausbau",
+    "pexelsId": 17410734,
+    "file": "services/hausbau.jpg",
+    "alt": "Bauarbeiter mit Werkzeuggürtel und Helm beim Hausbau",
+    "sourceUrl": "https://www.pexels.com/photo/man-with-tools-belts-and-safety-helmet-building-house-17410734/"
+  },
+  {
+    "key": "service-immobilienverkauf",
+    "pexelsId": 4916134,
+    "file": "services/immobilienverkauf.jpg",
+    "alt": "Typische Wohnhäuser mit Satteldach in einer deutschen Straße",
+    "sourceUrl": "https://www.pexels.com/photo/typical-residential-houses-with-timber-frames-on-city-street-4916134/"
+  },
+  {
+    "key": "service-innenausbau",
+    "pexelsId": 36153946,
+    "file": "services/innenausbau.jpg",
+    "alt": "Handwerker beim Innenausbau und Streichen von Wänden",
+    "sourceUrl": "https://www.pexels.com/photo/construction-workers-painting-interior-walls-36153946/"
+  },
+  {
+    "key": "service-pflasterarbeiten",
+    "pexelsId": 16239805,
+    "file": "services/pflasterarbeiten.jpg",
+    "alt": "Bauarbeiter beim Verlegen von Pflastersteinen",
+    "sourceUrl": "https://www.pexels.com/photo/worker-working-on-pavement-in-rain-16239805/"
+  },
+  {
+    "key": "service-trockenbau",
+    "pexelsId": 11427524,
+    "file": "services/trockenbau.jpg",
+    "alt": "Handwerker bei Trockenbauarbeiten im Innenausbau",
+    "sourceUrl": "https://www.pexels.com/photo/man-doing-construction-work-inside-house-11427524/"
+  },
+  {
+    "key": "project-efh-dinkelsbuehl",
+    "pexelsId": 30484316,
+    "file": "projects/efh-dinkelsbuehl.jpg",
+    "alt": "Modernes minimalistisches Einfamilienhaus",
+    "sourceUrl": "https://www.pexels.com/photo/modern-minimalist-house-design-exterior-view-30484316/"
+  },
+  {
+    "key": "project-hofanlage-feuchtwangen",
+    "pexelsId": 17240696,
+    "file": "projects/hofanlage-feuchtwangen.jpg",
+    "alt": "Wohnhaus mit gepflasterter Hofanlage im Hintergarten",
+    "sourceUrl": "https://www.pexels.com/photo/residential-house-with-a-patio-in-the-backyard-17240696/"
+  },
+  {
+    "key": "project-einfahrt-wassertruedingen",
+    "pexelsId": 8092380,
+    "file": "projects/einfahrt-wassertruedingen.jpg",
+    "alt": "Gepflasterte Einfahrt vor einem Wohnhaus mit Bepflanzung",
+    "sourceUrl": "https://www.pexels.com/photo/trees-and-plants-around-house-8092380/"
+  },
+  {
+    "key": "project-innenausbau-dinkelsbuehl",
+    "pexelsId": 5583116,
+    "file": "projects/innenausbau-dinkelsbuehl.jpg",
+    "alt": "Handwerker streicht eine Innenwand",
+    "sourceUrl": "https://www.pexels.com/photo/a-person-painting-a-wall-5583116/"
+  },
+  {
+    "key": "project-abbruch-fichtenau",
+    "pexelsId": 2327065,
+    "file": "projects/abbruch-fichtenau.jpg",
+    "alt": "Abbrucharbeiten an einem Gebäude bei Sonnenuntergang",
+    "sourceUrl": "https://www.pexels.com/photo/demolition-2327065/"
+  },
+  {
+    "key": "project-aussenanlage-dinkelsbuehl",
+    "pexelsId": 8031873,
+    "file": "projects/aussenanlage-dinkelsbuehl.jpg",
+    "alt": "Moderne Außenanlage vor einem Einfamilienhaus",
+    "sourceUrl": "https://www.pexels.com/photo/front-exterior-of-a-family-home-8031873/"
+  },
+  {
+    "key": "project-neubau-rohbau",
+    "pexelsId": 8491085,
+    "file": "projects/neubau-rohbau.jpg",
+    "alt": "Rohbau mit Holzdachstuhl im Bau",
+    "sourceUrl": "https://www.pexels.com/photo/wooden-frame-of-roof-on-concrete-building-8491085/"
+  },
+  {
+    "key": "project-moderne-terrasse",
+    "pexelsId": 10847167,
+    "file": "projects/moderne-terrasse.jpg",
+    "alt": "Moderne Holzterrasse im Garten",
+    "sourceUrl": "https://www.pexels.com/photo/brown-wooden-patio-10847167/"
+  },
+  {
+    "key": "before-hofeinfahrt",
+    "pexelsId": 6245621,
+    "file": "before-after/hofeinfahrt-vorher.jpg",
+    "alt": "Unbefestigter Boden vor Beginn der Pflasterarbeiten",
+    "sourceUrl": "https://www.pexels.com/photo/yellow-and-black-excavator-on-brown-soil-6245621/"
+  },
+  {
+    "key": "after-hofeinfahrt",
+    "pexelsId": 8092380,
+    "file": "before-after/hofeinfahrt-nachher.jpg",
+    "alt": "Fertig gepflasterte Einfahrt mit Bepflanzung",
+    "sourceUrl": "https://www.pexels.com/photo/trees-and-plants-around-house-8092380/"
+  },
+  {
+    "key": "before-rohbau-fertig",
+    "pexelsId": 17410734,
+    "file": "before-after/rohbau-fertig-vorher.jpg",
+    "alt": "Haus im Rohbaustadium",
+    "sourceUrl": "https://www.pexels.com/photo/man-with-tools-belts-and-safety-helmet-building-house-17410734/"
+  },
+  {
+    "key": "after-rohbau-fertig",
+    "pexelsId": 30484316,
+    "file": "before-after/rohbau-fertig-nachher.jpg",
+    "alt": "Fertiggestelltes modernes Einfamilienhaus",
+    "sourceUrl": "https://www.pexels.com/photo/modern-minimalist-house-design-exterior-view-30484316/"
+  }
+]

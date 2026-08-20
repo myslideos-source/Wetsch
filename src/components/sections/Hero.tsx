@@ -4,7 +4,11 @@ import { useRef } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { ChevronDown, MapPin, Sparkles, Star } from "lucide-react";
 import Button from "@/components/ui/Button";
-import { COMPANY } from "@/lib/constants";
+import DemoImage from "@/components/ui/DemoImage";
+import { COMPANY, HERO_IMAGE } from "@/lib/constants";
+
+const HERO_FALLBACK_GRADIENT =
+  "radial-gradient(120% 90% at 20% 0%, #3a352f 0%, #1a1a18 55%, #0c0c0b 100%)";
 
 const HEADLINE_LINES = ["WIR BAUEN.", "WAS BLEIBT."];
 
@@ -145,11 +149,18 @@ function ConstructionScene() {
 
   return (
     <div className="absolute inset-0 overflow-hidden">
+      <DemoImage
+        src={HERO_IMAGE.src}
+        alt={HERO_IMAGE.alt}
+        fallbackGradient={HERO_FALLBACK_GRADIENT}
+        sizes="100vw"
+        priority
+      />
       <div
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(120% 90% at 20% 0%, #3a352f 0%, #1a1a18 55%, #0c0c0b 100%)",
+            "linear-gradient(180deg, rgba(12,12,11,0.35) 0%, rgba(12,12,11,0.55) 55%, rgba(12,12,11,0.9) 100%)",
         }}
       />
 

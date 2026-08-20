@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "images:download": "node scripts/download-images.mjs",
+    "images:manifest": "node scripts/generate-image-manifest.mjs",
+    "images:setup": "npm run images:download && npm run images:manifest"
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -23,6 +26,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.3.1",
+    "sharp": "^0.35.3",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

@@ -2,8 +2,11 @@
 
 import { useId, useState } from "react";
 import { MoveHorizontal } from "lucide-react";
+import DemoImage from "@/components/ui/DemoImage";
 
 interface BeforeAfterSliderProps {
+  before: { src: string; alt: string };
+  after: { src: string; alt: string };
   beforeGradient: string;
   afterGradient: string;
   beforeLabel?: string;
@@ -12,6 +15,8 @@ interface BeforeAfterSliderProps {
 }
 
 export default function BeforeAfterSlider({
+  before,
+  after,
   beforeGradient,
   afterGradient,
   beforeLabel = "Vorher",
@@ -26,8 +31,9 @@ export default function BeforeAfterSlider({
       className={`relative aspect-[4/3] w-full select-none overflow-hidden rounded-3xl ${className}`}
       data-cursor="ZIEHEN"
     >
-      <div className="absolute inset-0" style={{ background: beforeGradient }}>
-        <span className="absolute left-5 top-5 label-technical text-xs text-off-white/80">
+      <div className="absolute inset-0">
+        <DemoImage src={before.src} alt={before.alt} fallbackGradient={beforeGradient} />
+        <span className="absolute left-5 top-5 label-technical text-xs text-off-white/90 [text-shadow:0_1px_3px_rgba(0,0,0,0.6)]">
           {beforeLabel}
         </span>
       </div>
@@ -36,8 +42,9 @@ export default function BeforeAfterSlider({
         className="absolute inset-0 overflow-hidden"
         style={{ clipPath: `inset(0 ${100 - value}% 0 0)` }}
       >
-        <div className="absolute inset-0" style={{ background: afterGradient }}>
-          <span className="absolute right-5 top-5 label-technical text-xs text-off-white/80">
+        <div className="absolute inset-0">
+          <DemoImage src={after.src} alt={after.alt} fallbackGradient={afterGradient} />
+          <span className="absolute right-5 top-5 label-technical text-xs text-off-white/90 [text-shadow:0_1px_3px_rgba(0,0,0,0.6)]">
             {afterLabel}
           </span>
         </div>

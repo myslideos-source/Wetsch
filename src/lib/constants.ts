@@ -16,6 +16,11 @@ export const COMPANY = {
   mapsQuery: "Sittlingen+17+91550+Dinkelsbühl",
 } as const;
 
+export const HERO_IMAGE: ServiceImage = {
+  src: "/images/hero/hero-baustelle.jpg",
+  alt: "Baukran auf einer Baustelle im Abendlicht",
+};
+
 export const NAV_LINKS = [
   { label: "Leistungen", href: "#leistungen" },
   { label: "Projekte", href: "#projekte" },
@@ -36,6 +41,11 @@ export type ServiceSlug =
   | "pflasterarbeiten"
   | "trockenbau";
 
+export interface ServiceImage {
+  src: string;
+  alt: string;
+}
+
 export interface Service {
   index: string;
   slug: ServiceSlug;
@@ -45,6 +55,7 @@ export interface Service {
   seoTitle: string;
   seoDescription: string;
   keyword: string;
+  image: ServiceImage;
 }
 
 export const SERVICES: Service[] = [
@@ -59,6 +70,7 @@ export const SERVICES: Service[] = [
     seoDescription:
       "Abbrucharbeiten in Dinkelsbühl: Rückbau, Entkernung und fachgerechte Entsorgung aus einer Hand. Jetzt Projekt anfragen.",
     keyword: "Abbruchunternehmen Dinkelsbühl",
+    image: { src: "/images/services/abbrucharbeiten.jpg", alt: "Bagger bei Abbrucharbeiten an einem Bestandsgebäude" },
   },
   {
     index: "02",
@@ -71,6 +83,7 @@ export const SERVICES: Service[] = [
     seoDescription:
       "Außenanlagen in Dinkelsbühl: Erdarbeiten, Entwässerung und Pflasterflächen aus einer Hand. Jetzt Projekt anfragen.",
     keyword: "Außenanlagen Dinkelsbühl",
+    image: { src: "/images/services/aussenanlagen.jpg", alt: "Modernes Einfamilienhaus mit gepflegter Außenanlage" },
   },
   {
     index: "03",
@@ -83,6 +96,7 @@ export const SERVICES: Service[] = [
     seoDescription:
       "Bauschuttentsorgung in Dinkelsbühl: Container, Trennung und Abtransport nach geltenden Vorgaben. Jetzt Projekt anfragen.",
     keyword: "Bauschuttentsorgung Dinkelsbühl",
+    image: { src: "/images/services/bauschuttentsorgung.jpg", alt: "Radlader beim Umschlag von Baumaterial auf einer Baustelle" },
   },
   {
     index: "04",
@@ -95,6 +109,7 @@ export const SERVICES: Service[] = [
     seoDescription:
       "Fertighausbau in Dinkelsbühl: Bodenplatte, Keller und Baubegleitung aus einer Hand. Jetzt Projekt anfragen.",
     keyword: "Fertighausbau Dinkelsbühl",
+    image: { src: "/images/services/fertighausbau.jpg", alt: "Holzdachstuhl auf einem Rohbau" },
   },
   {
     index: "05",
@@ -107,6 +122,7 @@ export const SERVICES: Service[] = [
     seoDescription:
       "Hausbau in Dinkelsbühl: vom Aushub bis zum schlüsselfertigen Zuhause. Jetzt Projekt anfragen.",
     keyword: "Hausbau Dinkelsbühl",
+    image: { src: "/images/services/hausbau.jpg", alt: "Bauarbeiter mit Werkzeuggürtel und Helm beim Hausbau" },
   },
   {
     index: "06",
@@ -119,6 +135,7 @@ export const SERVICES: Service[] = [
     seoDescription:
       "Immobilienverkauf in Dinkelsbühl: Grundstücke und Objekte aus der Region. Jetzt anfragen.",
     keyword: "Immobilien Dinkelsbühl",
+    image: { src: "/images/services/immobilienverkauf.jpg", alt: "Typische Wohnhäuser mit Satteldach in einer deutschen Straße" },
   },
   {
     index: "07",
@@ -131,6 +148,7 @@ export const SERVICES: Service[] = [
     seoDescription:
       "Innenausbau in Dinkelsbühl: Wände, Böden und Decken bezugsfertig ausgebaut. Jetzt Projekt anfragen.",
     keyword: "Innenausbau Dinkelsbühl",
+    image: { src: "/images/services/innenausbau.jpg", alt: "Handwerker beim Innenausbau und Streichen von Wänden" },
   },
   {
     index: "08",
@@ -143,6 +161,7 @@ export const SERVICES: Service[] = [
     seoDescription:
       "Pflasterarbeiten in Dinkelsbühl: Einfahrten, Höfe und Terrassen fachgerecht gepflastert. Jetzt Projekt anfragen.",
     keyword: "Pflasterarbeiten Dinkelsbühl",
+    image: { src: "/images/services/pflasterarbeiten.jpg", alt: "Bauarbeiter beim Verlegen von Pflastersteinen" },
   },
   {
     index: "09",
@@ -155,6 +174,7 @@ export const SERVICES: Service[] = [
     seoDescription:
       "Trockenbau in Dinkelsbühl: Wände, Decken und Dämmung nach Maß. Jetzt Projekt anfragen.",
     keyword: "Trockenbau Dinkelsbühl",
+    image: { src: "/images/services/trockenbau.jpg", alt: "Handwerker bei Trockenbauarbeiten im Innenausbau" },
   },
 ];
 
@@ -213,7 +233,9 @@ export interface Project {
   year: string;
   tags: string[];
   size: "large" | "medium" | "small";
-  hasBeforeAfter?: boolean;
+  /** Demo-/Beispielprojekt mit lizenziertem Beispielbild statt echter Referenz */
+  isDemo: true;
+  image: ServiceImage;
 }
 
 export const PROJECTS: Project[] = [
@@ -224,7 +246,11 @@ export const PROJECTS: Project[] = [
     year: "[Platzhalter]",
     tags: ["Hausbau", "Außenanlagen", "Pflasterarbeiten"],
     size: "large",
-    hasBeforeAfter: true,
+    isDemo: true,
+    image: {
+      src: "/images/projects/efh-dinkelsbuehl.jpg",
+      alt: "Modernes minimalistisches Einfamilienhaus",
+    },
   },
   {
     id: "hofanlage-feuchtwangen",
@@ -233,6 +259,11 @@ export const PROJECTS: Project[] = [
     year: "[Platzhalter]",
     tags: ["Erdarbeiten", "Entwässerung", "Pflaster"],
     size: "medium",
+    isDemo: true,
+    image: {
+      src: "/images/projects/hofanlage-feuchtwangen.jpg",
+      alt: "Wohnhaus mit gepflasterter Hofanlage im Hintergarten",
+    },
   },
   {
     id: "einfahrt-wassertruedingen",
@@ -241,7 +272,11 @@ export const PROJECTS: Project[] = [
     year: "[Platzhalter]",
     tags: ["Pflasterarbeiten", "Randsteine"],
     size: "small",
-    hasBeforeAfter: true,
+    isDemo: true,
+    image: {
+      src: "/images/projects/einfahrt-wassertruedingen.jpg",
+      alt: "Gepflasterte Einfahrt vor einem Wohnhaus mit Bepflanzung",
+    },
   },
   {
     id: "innenausbau-dinkelsbuehl",
@@ -250,6 +285,11 @@ export const PROJECTS: Project[] = [
     year: "[Platzhalter]",
     tags: ["Trockenbau", "Innenausbau"],
     size: "medium",
+    isDemo: true,
+    image: {
+      src: "/images/projects/innenausbau-dinkelsbuehl.jpg",
+      alt: "Handwerker streicht eine Innenwand",
+    },
   },
   {
     id: "abbruch-fichtenau",
@@ -258,6 +298,11 @@ export const PROJECTS: Project[] = [
     year: "[Platzhalter]",
     tags: ["Abbrucharbeiten", "Entsorgung"],
     size: "small",
+    isDemo: true,
+    image: {
+      src: "/images/projects/abbruch-fichtenau.jpg",
+      alt: "Abbrucharbeiten an einem Gebäude bei Sonnenuntergang",
+    },
   },
   {
     id: "aussenanlage-dinkelsbuehl",
@@ -266,6 +311,79 @@ export const PROJECTS: Project[] = [
     year: "[Platzhalter]",
     tags: ["Außenanlagen", "Entwässerung"],
     size: "large",
+    isDemo: true,
+    image: {
+      src: "/images/projects/aussenanlage-dinkelsbuehl.jpg",
+      alt: "Moderne Außenanlage vor einem Einfamilienhaus",
+    },
+  },
+  {
+    id: "neubau-rohbau",
+    title: "Neubau Rohbau Dinkelsbühl",
+    location: "Dinkelsbühl",
+    year: "[Platzhalter]",
+    tags: ["Hausbau", "Rohbau"],
+    size: "medium",
+    isDemo: true,
+    image: {
+      src: "/images/projects/neubau-rohbau.jpg",
+      alt: "Rohbau mit Holzdachstuhl im Bau",
+    },
+  },
+  {
+    id: "moderne-terrasse",
+    title: "Moderne Terrasse Dinkelsbühl",
+    location: "Dinkelsbühl",
+    year: "[Platzhalter]",
+    tags: ["Pflasterarbeiten", "Außenanlagen"],
+    size: "small",
+    isDemo: true,
+    image: {
+      src: "/images/projects/moderne-terrasse.jpg",
+      alt: "Moderne Holzterrasse im Garten",
+    },
+  },
+];
+
+export interface BeforeAfterPair {
+  id: string;
+  title: string;
+  tags: string[];
+  before: ServiceImage;
+  after: ServiceImage;
+}
+
+/**
+ * Demo-Vorher/Nachher-Paare mit unabhängigen Beispielbildern (nicht dieselbe
+ * Örtlichkeit) – deutlich als Visualisierung gekennzeichnet, siehe
+ * BeforeAfterSlider.
+ */
+export const BEFORE_AFTER_PAIRS: BeforeAfterPair[] = [
+  {
+    id: "hofeinfahrt",
+    title: "Hofeinfahrt",
+    tags: ["Erdarbeiten", "Pflasterarbeiten"],
+    before: {
+      src: "/images/before-after/hofeinfahrt-vorher.jpg",
+      alt: "Unbefestigter Boden vor Beginn der Pflasterarbeiten",
+    },
+    after: {
+      src: "/images/before-after/hofeinfahrt-nachher.jpg",
+      alt: "Fertig gepflasterte Einfahrt mit Bepflanzung",
+    },
+  },
+  {
+    id: "rohbau-fertig",
+    title: "Rohbau → Fertigstellung",
+    tags: ["Hausbau"],
+    before: {
+      src: "/images/before-after/rohbau-fertig-vorher.jpg",
+      alt: "Haus im Rohbaustadium",
+    },
+    after: {
+      src: "/images/before-after/rohbau-fertig-nachher.jpg",
+      alt: "Fertiggestelltes modernes Einfamilienhaus",
+    },
   },
 ];
 

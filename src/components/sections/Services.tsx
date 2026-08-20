@@ -17,6 +17,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { SERVICES, type Service } from "@/lib/constants";
+import DemoImage from "@/components/ui/DemoImage";
 
 const ICONS: Record<Service["slug"], LucideIcon> = {
   abbrucharbeiten: Hammer,
@@ -115,16 +116,22 @@ export default function Services() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.98 }}
                   transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-                  className="relative flex aspect-[4/3] flex-col justify-between p-10"
-                  style={{ background: GRADIENTS[activeService.slug] }}
+                  className="relative flex aspect-[4/3] flex-col justify-between overflow-hidden p-10"
                 >
-                  <div className="flex items-center justify-between">
+                  <DemoImage
+                    src={activeService.image.src}
+                    alt={activeService.image.alt}
+                    fallbackGradient={GRADIENTS[activeService.slug]}
+                    sizes="(min-width: 768px) 58vw, 100vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-black/10" />
+                  <div className="relative flex items-center justify-between">
                     <Icon size={40} className="text-off-white/90" aria-hidden />
                     <span className="font-display text-8xl font-extrabold text-off-white/15">
                       {activeService.index}
                     </span>
                   </div>
-                  <div>
+                  <div className="relative">
                     <h3 className="font-display text-3xl font-bold uppercase text-off-white lg:text-4xl">
                       {activeService.title}
                     </h3>
@@ -149,16 +156,22 @@ export default function Services() {
             return (
               <div
                 key={service.slug}
-                className="relative flex aspect-[3/4] w-[78vw] shrink-0 flex-col justify-between rounded-3xl p-7 [scroll-snap-align:start]"
-                style={{ background: GRADIENTS[service.slug] }}
+                className="relative flex aspect-[3/4] w-[78vw] shrink-0 flex-col justify-between overflow-hidden rounded-3xl p-7 [scroll-snap-align:start]"
               >
-                <div className="flex items-center justify-between">
+                <DemoImage
+                  src={service.image.src}
+                  alt={service.image.alt}
+                  fallbackGradient={GRADIENTS[service.slug]}
+                  sizes="78vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-black/10" />
+                <div className="relative flex items-center justify-between">
                   <CardIcon size={32} className="text-off-white/90" aria-hidden />
                   <span className="font-display text-6xl font-extrabold text-off-white/15">
                     {service.index}
                   </span>
                 </div>
-                <div>
+                <div className="relative">
                   <h3 className="font-display text-2xl font-bold uppercase text-off-white">
                     {service.title}
                   </h3>
