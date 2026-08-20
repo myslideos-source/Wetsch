@@ -32,9 +32,9 @@ export default function BeforeAfterSlider({
       data-cursor="ZIEHEN"
     >
       <div className="absolute inset-0">
-        <DemoImage src={before.src} alt={before.alt} fallbackGradient={beforeGradient} />
-        <span className="absolute left-5 top-5 label-technical text-xs text-off-white/90 [text-shadow:0_1px_3px_rgba(0,0,0,0.6)]">
-          {beforeLabel}
+        <DemoImage src={after.src} alt={after.alt} fallbackGradient={afterGradient} />
+        <span className="absolute right-5 top-5 label-technical text-xs text-off-white/90 [text-shadow:0_1px_3px_rgba(0,0,0,0.6)]">
+          {afterLabel}
         </span>
       </div>
 
@@ -43,9 +43,9 @@ export default function BeforeAfterSlider({
         style={{ clipPath: `inset(0 ${100 - value}% 0 0)` }}
       >
         <div className="absolute inset-0">
-          <DemoImage src={after.src} alt={after.alt} fallbackGradient={afterGradient} />
-          <span className="absolute right-5 top-5 label-technical text-xs text-off-white/90 [text-shadow:0_1px_3px_rgba(0,0,0,0.6)]">
-            {afterLabel}
+          <DemoImage src={before.src} alt={before.alt} fallbackGradient={beforeGradient} />
+          <span className="absolute left-5 top-5 label-technical text-xs text-off-white/90 [text-shadow:0_1px_3px_rgba(0,0,0,0.6)]">
+            {beforeLabel}
           </span>
         </div>
       </div>
