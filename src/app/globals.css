@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+:root {
+  --color-off-white: #f3f1ec;
+  --color-concrete: #dcd9d1;
+  --color-concrete-dark: #a7a49b;
+  --color-anthracite: #2a2a27;
+  --color-graphite: #1a1a18;
+  --color-black: #0c0c0b;
+  /* AA-kontrastsicher (>=4.5:1) auf Off-White/Concrete – Standard für Buttons, Links, Text auf hellem Grund */
+  --color-accent: #b8481c;
+  --color-accent-dark: #9c3c17;
+  /* Kräftigeres Baustellen-Orange für Text/Icons auf dunklem Grund (Graphit/Schwarz), dort ausreichend kontrastreich */
+  --color-accent-vivid: #e8642a;
+  /* Nur für dekorative, textfreie Flächen (Glow, Verläufe, Partikel) */
+  --color-accent-light: #f2895c;
+
+  --background: var(--color-off-white);
+  --foreground: var(--color-graphite);
+}
+
+@theme inline {
+  --color-off-white: var(--color-off-white);
+  --color-concrete: var(--color-concrete);
+  --color-concrete-dark: var(--color-concrete-dark);
+  --color-anthracite: var(--color-anthracite);
+  --color-graphite: var(--color-graphite);
+  --color-black: var(--color-black);
+  --color-accent: var(--color-accent);
+  --color-accent-dark: var(--color-accent-dark);
+  --color-accent-vivid: var(--color-accent-vivid);
+  --color-accent-light: var(--color-accent-light);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --font-display: var(--font-shoulders), "Arial Narrow", sans-serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+
+  --animate-marquee: marquee 28s linear infinite;
+  --animate-fade-up: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-draw-line: draw-line 1.2s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes draw-line {
+    from {
+      stroke-dashoffset: 1;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  background: var(--color-off-white);
+  color: var(--color-graphite);
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-off-white);
+}
+
+/* Visible, on-brand focus states for keyboard navigation */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Utility: numbered technical labels used throughout the site */
+.label-technical {
+  font-family: var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Custom scrollbar for horizontal scroll experiences */
+.scrollbar-thin::-webkit-scrollbar {
+  height: 4px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: var(--color-concrete-dark);
+}
+
+.custom-cursor-active,
+.custom-cursor-active * {
+  cursor: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
