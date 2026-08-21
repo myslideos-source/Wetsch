@@ -319,15 +319,15 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "neubau-rohbau",
-    title: "Neubau Rohbau Dinkelsbühl",
+    title: "Neubau Dinkelsbühl",
     location: "Dinkelsbühl",
     year: "[Platzhalter]",
-    tags: ["Hausbau", "Rohbau"],
+    tags: ["Hausbau", "Außenanlagen", "Pflasterarbeiten"],
     size: "medium",
     isDemo: true,
     image: {
       src: "/images/projects/neubau-rohbau.jpg",
-      alt: "Rohbau mit Holzdachstuhl im Bau",
+      alt: "Fertiggestelltes modernes Einfamilienhaus mit Einfahrt und Außenanlage bei Abenddämmerung",
     },
   },
   {
@@ -394,10 +394,13 @@ export interface Stat {
   isNumber: boolean;
 }
 
+/** Beispielwerte für die Präsentation – vor dem Launch durch echte Zahlen ersetzen. */
+export const STATS_ARE_EXAMPLE_VALUES = true;
+
 export const STATS: Stat[] = [
-  { value: "[Platzhalter]", suffix: "", label: "Jahre Erfahrung", isNumber: false },
-  { value: "[Platzhalter]", suffix: "", label: "Projekte", isNumber: false },
-  { value: "[Platzhalter]", suffix: " km", label: "Regionale Einsatzgebiete", isNumber: false },
+  { value: "15", suffix: "+", label: "Jahre Erfahrung", isNumber: true },
+  { value: "120", suffix: "+", label: "Projekte", isNumber: true },
+  { value: "30", suffix: " km", label: "Regionale Einsatzgebiete", isNumber: true },
   { value: "9", suffix: "", label: "Leistungsbereiche", isNumber: true },
 ];
 

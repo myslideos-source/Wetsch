@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
-import { TESTIMONIALS } from "@/lib/constants";
+import { ChevronLeft, ChevronRight, Quote, Star } from "lucide-react";
+import { COMPANY, TESTIMONIALS } from "@/lib/constants";
 
 export default function Testimonials() {
   const [index, setIndex] = useState(0);
@@ -70,6 +70,16 @@ export default function Testimonials() {
             </button>
           </div>
         )}
+
+        <a
+          href={`https://www.google.com/maps/search/?api=1&query=${COMPANY.mapsQuery}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-12 inline-flex items-center gap-2 rounded-full border border-anthracite/15 bg-off-white px-5 py-3 text-sm font-medium text-graphite transition-colors hover:border-accent hover:text-accent"
+        >
+          <Star size={16} className="text-accent" aria-hidden />
+          Bei Google bewerten
+        </a>
       </div>
     </section>
   );
