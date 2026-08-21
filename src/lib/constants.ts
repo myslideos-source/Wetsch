@@ -407,24 +407,55 @@ export const STATS: Stat[] = [
 export interface Testimonial {
   quote: string;
   author: string;
+  rating: number;
+  source: "Google";
   isPlaceholder: boolean;
 }
 
+/**
+ * Echte Google-Rezensionen von Wetsch GmbH & Co. KG (vom Nutzer per Screenshot
+ * bereitgestellt). Die Zitate sind von Google gekürzte Ausschnitte („…“) – der
+ * vollständige Text liegt uns nicht vor, daher wird nichts ergänzt oder erfunden.
+ */
 export const TESTIMONIALS: Testimonial[] = [
   {
-    quote: "[Platzhalter Kundenbewertung]",
-    author: "[Platzhalter]",
-    isPlaceholder: true,
+    quote: "Unbedingt zu empfehlen. Absolute Kompetenz …",
+    author: "Bernd Lindörfer",
+    rating: 5,
+    source: "Google",
+    isPlaceholder: false,
   },
   {
-    quote: "[Platzhalter Kundenbewertung]",
-    author: "[Platzhalter]",
-    isPlaceholder: true,
+    quote:
+      "Ich habe bei der Wetsch GmbH einen Container für Bauschutt bestellt, die Lieferung lief absolut reibungslos und pünktlich. Auch auf Nachfrage wurden schnell und …",
+    author: "Joseph Loresch",
+    rating: 5,
+    source: "Google",
+    isPlaceholder: false,
   },
   {
-    quote: "[Platzhalter Kundenbewertung]",
-    author: "[Platzhalter]",
-    isPlaceholder: true,
+    quote:
+      "Erdbau arbeiten wurden äußerst sauber und vorrauschend erledigt. Selbst unter starken Termindruck. Super Mitarbeiter sehr sauber und gründlich. Faire Preise. …",
+    author: "Niklas Straub",
+    rating: 5,
+    source: "Google",
+    isPlaceholder: false,
+  },
+  {
+    quote:
+      "Die Inhaber und auch das Personal sind immer sehr freundlich und es gibt eine gute Beratung. Für Selbstabholer sind die Preise und Qualität sehr gut. Bin sehr zufrieden und hole weite…",
+    author: "Jörg Kindler",
+    rating: 5,
+    source: "Google",
+    isPlaceholder: false,
+  },
+  {
+    quote:
+      "Sehr freundliches Personal, kann die Firma nur empfehlen. Bin schon oft in der Firma gewesen, habe verschiedene Baumaterialien geholt und jedes Mal bin ich als Kunde s…",
+    author: "Peter Jacobs",
+    rating: 5,
+    source: "Google",
+    isPlaceholder: false,
   },
 ];
 

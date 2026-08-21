@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ChevronLeft, ChevronRight, Quote, Star } from "lucide-react";
+import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import { COMPANY, TESTIMONIALS } from "@/lib/constants";
+
+const siteUrl = "https://www.wetsch-bau.de";
 
 export default function Testimonials() {
   const [index, setIndex] = useState(0);
@@ -13,13 +15,32 @@ export default function Testimonials() {
     setIndex((i) => (i + dir + TESTIMONIALS.length) % TESTIMONIALS.length);
   };
 
+  const reviewJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": `${siteUrl}/#business`,
+    review: TESTIMONIALS.filter((t) => !t.isPlaceholder).map((t) => ({
+      "@type": "Review",
+      author: { "@type": "Person", name: t.author },
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: t.rating,
+        bestRating: 5,
+      },
+      reviewBody: t.quote,
+    })),
+  };
+
   return (
     <section className="bg-concrete/30 px-5 py-24 md:px-10 md:py-32">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewJsonLd) }}
+      />
       <div className="mx-auto max-w-3xl text-center">
         <p className="label-technical text-xs text-accent mb-4">Kundenstimmen</p>
-        <Quote className="mx-auto mb-8 text-accent" size={36} aria-hidden />
 
-        <div className="relative min-h-[180px]">
+        <div className="relative min-h-[200px]">
           <AnimatePresence mode="wait">
             <motion.div
               key={index}
@@ -28,11 +49,24 @@ export default function Testimonials() {
               exit={{ opacity: 0, y: -12 }}
               transition={{ duration: 0.35 }}
             >
+              <div className="mb-5 flex justify-center gap-1" aria-label={`${testimonial.rating} von 5 Sternen`}>
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star
+                    key={i}
+                    size={18}
+                    className={i < testimonial.rating ? "fill-accent text-accent" : "text-anthracite/20"}
+                    aria-hidden
+                  />
+                ))}
+              </div>
               <p className="font-display text-2xl font-medium leading-snug text-graphite md:text-3xl">
                 „{testimonial.quote}“
               </p>
               <p className="mt-6 label-technical text-sm text-anthracite/50">
                 {testimonial.author}
+                {!testimonial.isPlaceholder && (
+                  <span className="text-anthracite/35"> · Rezension aus {testimonial.source}</span>
+                )}
               </p>
             </motion.div>
           </AnimatePresence>
@@ -78,7 +112,7 @@ export default function Testimonials() {
           className="mt-12 inline-flex items-center gap-2 rounded-full border border-anthracite/15 bg-off-white px-5 py-3 text-sm font-medium text-graphite transition-colors hover:border-accent hover:text-accent"
         >
           <Star size={16} className="text-accent" aria-hidden />
-          Bei Google bewerten
+          Weitere Bewertungen bei Google
         </a>
       </div>
     </section>
