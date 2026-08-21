@@ -13,6 +13,8 @@ interface DemoImageProps {
   sizes?: string;
   priority?: boolean;
   className?: string;
+  /** CSS object-position, z. B. "50% 15%" um bei schmalen Hochkant-Fotos den oberen Bildbereich im Fokus zu halten */
+  objectPosition?: string;
 }
 
 /**
@@ -28,6 +30,7 @@ export default function DemoImage({
   sizes = "100vw",
   priority = false,
   className = "",
+  objectPosition,
 }: DemoImageProps) {
   const meta = manifest[src];
 
@@ -53,6 +56,7 @@ export default function DemoImage({
       placeholder="blur"
       blurDataURL={meta.blurDataURL}
       className={`object-cover ${className}`}
+      style={objectPosition ? { objectPosition } : undefined}
     />
   );
 }

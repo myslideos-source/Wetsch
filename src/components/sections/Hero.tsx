@@ -158,6 +158,7 @@ function ConstructionScene() {
         fallbackGradient={HERO_FALLBACK_GRADIENT}
         sizes="100vw"
         priority
+        objectPosition="50% 18%"
       />
       <div
         className="absolute inset-0"
